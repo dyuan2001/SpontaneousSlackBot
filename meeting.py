@@ -1,3 +1,6 @@
+from db import db
+
+
 def pingpong(message, say):
     say(text=f"Pong <@{message['user']}>!")
     print(message)
@@ -6,8 +9,13 @@ def pingpong(message, say):
 Create meeting
 /create meeting int:timeout list:<participants>
 Sends meeting to MongoDB - timeout + map<participant, <message_id, bool>>
+dict(participants), participants(message_id, bool)
 Sends notification to each participant w/ react message
 """
+def create(ack, say, command):
+    ack()
+    say(text=f"You have created it successfully.")
+    print(command)
 
 
 """
