@@ -18,24 +18,23 @@ def message_hello(message, say):
 
 ############################################
 #Waits for a /setup command and sends a message to be reacted to
-@app.command("/setup")
-def individual_setup(ack, say, command):
-    ack()
-    say("Setting up")
-    # say(
-    #     blocks=[
-    #         {
-    #             "type": "section",
-    #             "text": {"type": "mrkdwn", "text": f"Hey there <@{command['text']}>!"},
-    #             "accessory": {
-    #                 "type": "button",
-    #                 "text": {"type": "plain_text", "text": "Click Me"},
-    #                 "action_id": "button_click"
-    #             }
-    #         }
-    #     ],
-    #     text=f"Hey there <@{command['text']}>!"
-    # )
+@app.message("/setup")
+def individual_setup(message, say):
+    #ack()
+    say(
+        blocks=[
+            {
+                "type": "section",
+                "text": {"type": "mrkdwn", "text": f"Hey there <@{message['user']}>!"},
+                "accessory": {
+                    "type": "button",
+                    "text": {"type": "plain_text", "text": "Click Me"},
+                    "action_id": "button_click"
+                }
+            }
+        ],
+        text=f"Hey there <@{message['user']}>!"
+    )
 
 @app.action("button_click")
 def react_button(body, ack, say):
