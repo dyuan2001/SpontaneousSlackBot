@@ -25,12 +25,15 @@ def message_hello(message, say):
 """ 
 INDIVIDUAL MEETINGS
 """
-from meeting import pingpong
+import meeting
 
 @app.message('!ping')
 def message_pingpong(message, say):
-    pingpong(message, say)
+    meeting.pingpong(message, say)
 
+@app.command("/createmeeting")
+def createMeeting(ack, say, command):
+    meeting.create(ack, say, command)
 
 
 
@@ -44,12 +47,12 @@ if __name__ == "__main__":
 
 
 
-# async def test():
-obj = db.meeting.find()
-print(obj)
-for o in obj:
-    print(o['_id'])
-obj2 = db.meeting.find_one()
-print(obj2)
+# # async def test():
+# obj = db.meeting.find()
+# print(obj)
+# for o in obj:
+#     print(o['_id'])
+# obj2 = db.meeting.find_one()
+# print(obj2)
 
-# asyncio.run(test())
+# # asyncio.run(test())
