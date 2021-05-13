@@ -21,20 +21,21 @@ def message_hello(message, say):
 @app.command("/setup")
 def individual_setup(ack, say, command):
     ack()
-    say(
-        blocks=[
-            {
-                "type": "section",
-                "text": {"type": "mrkdwn", "text": f"Hey there <@{command['text']}>!"},
-                "accessory": {
-                    "type": "button",
-                    "text": {"type": "plain_text", "text": "Click Me"},
-                    "action_id": "button_click"
-                }
-            }
-        ],
-        text=f"Hey there <@{command['text']}>!"
-    )
+    say("Setting up")
+    # say(
+    #     blocks=[
+    #         {
+    #             "type": "section",
+    #             "text": {"type": "mrkdwn", "text": f"Hey there <@{command['text']}>!"},
+    #             "accessory": {
+    #                 "type": "button",
+    #                 "text": {"type": "plain_text", "text": "Click Me"},
+    #                 "action_id": "button_click"
+    #             }
+    #         }
+    #     ],
+    #     text=f"Hey there <@{command['text']}>!"
+    # )
 
 @app.action("button_click")
 def react_button(body, ack, say):
