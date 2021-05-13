@@ -156,6 +156,12 @@ def deny_meeting(body, ack, say):
     ack()
 
     say(f"<@{body['user']['id']}> has denied the meeting.")
+
+    id = body['message']['blocks'][0]['text']['text']
+
+    collection = db.meeting
+    collection.delete_one({"_id": id})
+
 """
 React to meeting
 Sends update to MongoDB - update map
