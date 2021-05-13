@@ -19,8 +19,8 @@ def message_hello(message, say):
 ############################################
 #Waits for a /setup command and sends a message to be reacted to
 @app.command("!setup")
-def individual_setup(message, say):
-    #ack()
+def individual_setup(ack, message, say):
+    ack()
     say(
         blocks=[
             {
