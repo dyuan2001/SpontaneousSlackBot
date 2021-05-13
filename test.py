@@ -25,7 +25,7 @@ def individual_setup(ack, say, command):
         blocks=[
             {
                 "type": "section",
-                "text": {"type": "mrkdwn", "text": f"Hey there <@{command['user']}>!"},
+                "text": {"type": "mrkdwn", "text": f"Hey there <@{command['text']}>!"},
                 "accessory": {
                     "type": "button",
                     "text": {"type": "plain_text", "text": "Click Me"},
@@ -33,7 +33,7 @@ def individual_setup(ack, say, command):
                 }
             }
         ],
-        text=f"Hey there <@{command['user']}>!"
+        text=f"Hey there <@{command['text']}>!"
     )
 
 @app.action("button_click")
