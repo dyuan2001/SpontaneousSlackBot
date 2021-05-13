@@ -15,6 +15,11 @@ def create_group(text):
             "timeout": timeout,
             "members": members}
 
+
+            
+
+
+
 if __name__ == "__main__":
     text = "/create testgroup 5 daniel david olga philip raymond"
     print(create_group(text))
